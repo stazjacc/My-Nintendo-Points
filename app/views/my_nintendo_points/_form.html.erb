@@ -1,0 +1,63 @@
+<div class="column is-12">
+  <section class="hero is-info welcome is-small">
+      <div class="hero-body">
+          <div class="container">
+              <h1 class="title">
+                <% if controller_name == "my_nintendo_points" and action_name == "edit" %>
+                  Editar Conta
+                  <% else %>
+                  Cadastrar Nova Conta
+                <% end -%>
+              </h1>
+          </div>
+      </div>
+  </section>
+  <div class="box content" style="margin-top: 1rem;">
+    <%= simple_form_for(@my_nintendo_point) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="field">
+          <div class="control">
+              <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+          </div>
+      </div>
+      <div class="field">
+          <div class="control">
+              <%= f.input :username, label: false, placeholder: 'Nome do Usuário', input_html:{ class: 'input is-large' } %>
+          </div>
+      </div>
+      <div class="field">
+          <div class="control">
+            <%= f.input :country, label: false, input_html:{ class: "input is-large"} do %>
+              <%= f.country_select :country %>
+            <% end %>
+          </div>
+      </div>
+      <div class="field">
+          <div class="control">
+              <%= f.input :gpoints, label:false, placeholder:'Pontos de Ouro', input_html:{ class: "input is-large"} %>
+          </div>
+      </div>
+      <div class="field">
+          <div class="control">
+              <%= f.input :spoints, label:false, placeholder:'Pontos de Platina', input_html:{ class: "input is-large"} %>
+          </div>
+      </div>
+      <div class="field">
+          <div class="control">
+              <div class="column">
+                  <%= f.submit 'Salvar', class: "button is-block is-info is-large" %>
+              </div>
+          </div>
+      </div>
+    <% end %>
+    <div class="field">
+          <div class="control">
+              <div class="column">
+                  <%= link_to 'Cancelar', my_nintendo_points_path %>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

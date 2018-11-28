@@ -1,0 +1,22 @@
+<% if controller_name == "my_nintendo_points" and action_name == "index" %>
+    <div class="tile is-ancestor has-text-centered">
+        <div class="tile is-parent">
+            <article class="tile is-child box">
+                <p class="title"><%= @my_nintendo_points.count %></p>
+                <p class="subtitle">Total de Contas</p>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box is-gold">
+                <p class="title"><%= @my_nintendo_points.sum(:gpoints) %></p>
+                <p class="subtitle">Total de Pontos de Ouro</p>
+            </article>
+        </div>
+        <div class="tile is-parent">
+            <article class="tile is-child box is-silver">
+                <p class="title"><%= @my_nintendo_points.sum(:spoints) %></p>
+                <p class="subtitle">Total de Pontos de Platina</p>
+            </article>
+        </div>
+    </div>
+<% end -%>

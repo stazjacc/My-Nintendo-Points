@@ -1,0 +1,14 @@
+# encoding: UTF-8
+pt-BR:
+  activerecord:
+    models:
+      my_nintendo_point: Meus Pontos Nintendo
+      user: Usuário
+    attributes:
+      name_and_description: &BASIC
+        username: Nome
+        country: País
+      my_nintendo_point:
+        <<: *BASIC
+        gpoints: Pontos de Ouro
+        spoints: Pontos de Platina

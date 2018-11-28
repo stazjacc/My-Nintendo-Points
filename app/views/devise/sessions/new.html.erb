@@ -1,0 +1,36 @@
+<h3 class="title has-text-grey">Login</h3>
+<p class="subtitle has-text-grey">Please login to proceed.</p>
+<div class="box">
+    <figure class="avatar">
+        <%= image_tag "Star_Coin_XS.png" %>
+    </figure>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
+    <div class="field">
+        <div class="control">
+            <%= f.text_field :email, placeholder: "E-mail", autofocus: true, class: "input is-large" %>
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <%= f.password_field :password, placeholder: "Senha", autocomplete: "off", class: "input is-large" %>
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <% if devise_mapping.rememberable? %>
+                <div class="checkbox">
+                    <%= f.label :remember_me do %>
+                    <%= f.check_box :remember_me %> <%= t('.remember_me', default: "Lembrar-me") %>
+                <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <div class="col-xs-4 text-right">
+                <%= f.submit  t('.sign_in', default: "Entrar"), class: "button is-block is-info is-large is-fullwidth" %>
+            </div>
+        </div>
+    </div>
+<% end %>

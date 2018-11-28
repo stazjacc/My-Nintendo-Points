@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "My Nintendo Points" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    </head>
+    <body>
+        <div id="RAILS_ENV_CONSTANT" style="display:none"><%= Rails.env %></div>
+        <section class="hero is-success is-fullheight">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <div class="column is-4 is-offset-4">
+                            <%#= bootstrap_flash %>
+                            <%= yield %>
+                        </div>
+                        <p class="has-text-grey">
+                            <%= render "devise/shared/links" %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

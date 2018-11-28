@@ -1,0 +1,8 @@
+<%= content_for :full_box do %>opa<% end %>
+
+<% @my_nintendo_points.each do |my_nintendo_point| %>
+  <%= render 'shared/box_account', my_nintendo_point: my_nintendo_point %>
+<% end %>
+<% if @my_nintendo_points.empty? %>
+  <%= render 'shared/no_accounts', msg: 'Nenhuma conta cadastrada' %>
+<% end %>

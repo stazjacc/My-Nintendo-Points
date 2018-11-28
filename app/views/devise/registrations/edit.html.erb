@@ -1,0 +1,58 @@
+<div class="column is-12">
+  <section class="hero is-info welcome is-small">
+      <div class="hero-body">
+          <div class="container">
+              <h1 class="title">
+                  Editar Conta
+              </h1>
+          </div>
+      </div>
+  </section>
+  <div class="box content" style="margin-top: 1rem;">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="field">
+          <div class="control">
+              <%= f.input :email,
+              label: "E-mail",
+              placeholder: "E-mail", required: true, autofocus: true, input_html: { autocomplete: "email", class: "input is-large" } %>
+          </div>
+      </div>
+      <div class="field">
+          <div class="control">
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <% end %>
+          </div>
+      </div>
+      <div class="field">
+          <div class="control">
+           <%= f.input :password,
+                label: "Senha",
+                hint: "deixe em branco caso não queira alterar a senha.",
+                required: false,
+                input_html: { autocomplete: "new-password", class: "input is-large" } %>
+          </div>
+      </div>
+      <div class="field">
+         <%= f.input :current_password,
+              label: "Senha Atual",
+              hint: "Precisamos da sua senha atual para confirmar suas alterações",
+              required: true,
+              input_html: { autocomplete: "current-password", class: "input is-large" } %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Atualizar", class: "button is-block is-info is-large is-fullwidth" %>
+      </div>
+    <% end %>
+    <div class="field">
+          <div class="control">
+              <div class="column">
+                    <p>Insatisfeito? <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Confirma o cancelamento da conta? (Esta ação não pode ser desfeita.)" }, method: :delete %></p>
+                    <%= link_to "Voltar", :back %>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
