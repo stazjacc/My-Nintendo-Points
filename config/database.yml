@@ -1,15 +1,16 @@
- default: &default
-   adapter: postgresql
-   encoding: utf8
-   pool: 5
-   host: localhost
-   username: postgres
-   password: masterx
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: 127.0.0.1
+  port: 5432
+  username: postgres
+  password: masterx
 
- development:
-   <<: *default
-   database: db/development_bulma
+development:
+  <<: *default
+  database: db/development_my_nintendo_points
 
- test:
-   <<: *default
-   database: db/test_bulma
+test:
+  <<: *default
+  database: db/test_my_nintendo_points
